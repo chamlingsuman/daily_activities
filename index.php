@@ -22,7 +22,11 @@
                    </div>
                    <div class="mb-3">
                         <strong><label for="password" class="form-label">Password</label></strong>
-                        <input type="text" class="form-control" name="password" placeholder="Enter your Password">
+                        <input type="text" class="form-control" name="password" id="pass" placeholder="Enter your Password">
+                   </div>
+                   <div class="mb-3">
+                      <input type="checkbox" onclick="shp()">
+                      <lable>Show Password</lable> 
                    </div>
                    <div class="row mx-0 mb-3">
                     <button type="submit" class="btn btn-primary">Log in</button>
@@ -39,5 +43,27 @@
             </div>
         </div>
        </div>
+
+
+
+
+
+
+
+
+
+
+       <script>
+        function shp(){
+            a = document.getElementById('pass');
+            if(a.type === 'password'){
+                a.type = "text";
+            }else{
+                a.type = "password";
+            }
+        }
+       </script>
+
+
     </body>
 </html>

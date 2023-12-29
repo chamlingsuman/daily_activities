@@ -31,7 +31,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     $uname = validate($_POST['username']);
 
-    $pass = validate($_POST['md5($password)']);
+    $pass = validate($_POST['password']);
 
     if (empty($uname)) {
 
