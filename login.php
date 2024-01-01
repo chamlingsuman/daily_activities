@@ -1,19 +1,6 @@
 <?php 
-$sname = "localhost";
-$u_name = "root";
-$password = "";
-$db_name = "daily_activities";
 
-$conn = mysqli_connect($sname, $u_name, $password, $db_name);
-
-if (!$conn) {
-    echo "Connection failed!";
-}
-
-?>
-
-<?php 
-
+require('config.php');
 session_start(); 
 if (isset($_POST['username']) && isset($_POST['password'])) {
 
@@ -29,17 +16,16 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     }
 
-    $uname = validate($_POST['username']);
+    $username = validate($_POST['username']);
+    $password = validate($_POST['password']);
 
-    $pass = validate($_POST['password']);
-
-    if (empty($uname)) {
+    if (empty($username)) {
 
         header("Location: index.php?error=User Name is required");
 
         exit();
 
-    }else if(empty($pass)){
+    }else if(empty($password)){
 
         header("Location: index.php?error=Password is required");
 
@@ -47,7 +33,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     }else{
 
-        $sql = "SELECT * FROM users WHERE user_name='$uname' AND password='$pass'";
+        $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 
         $result = mysqli_query($conn, $sql);
 
@@ -55,11 +41,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
             $row = mysqli_fetch_assoc($result);
 
-            if ($row['user_name'] === $uname && $row['password'] === $pass) {
+            if ($row['username'] === $username && $row['password'] === $password) {
 
                 echo "Logged in!";
 
-                $_SESSION['user_name'] = $row['user_name'];
+                $_SESSION['username'] = $row['username'];
 
                 $_SESSION['name'] = $row['name'];
 
@@ -94,3 +80,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     exit();
 
 }
+
+die;
+?>
