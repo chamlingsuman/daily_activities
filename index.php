@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <body style="background: #f5f2ea">
+    <body>
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
             <title>Daily Activities</title>
+            <style>
+        body {
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-image: url('teamwork-activity-team-building.png');
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the background */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            height: 100vh; /* Set the body height to 100% of the viewport height */
+        }
+    </style>
        </head>
 
        <div class="container d-flex flex-column">
